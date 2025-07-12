@@ -1,0 +1,14 @@
+<h1>Contador: {{ counter }}</h1>
+<h1>Contador Signal: {{ counterSignal() }}</h1>
+
+
+<hr>
+
+<button class="btn btn-primary me-2" (click)="increaseBy(1)">+1</button>
+<button class="btn btn-primary me-2" (click)="decreaseBy(1)">-1</button>
+<button class="btn btn-primary me-2" (click)="resetCounter()">Reiniciar</button>
+
+
+<button class="btn btn-accent" [routerLink]="['/tasks']" routerLinkActive="" >
+  Ir a Tasks
+</button>
