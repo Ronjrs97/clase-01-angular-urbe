@@ -25,7 +25,7 @@
 
           <h3 class="card-title justify-center">Tareas Completadas</h3>
 
-          <div class="text-4xl font-bold text-green-600">Contador</div>
+          <div class="text-4xl font-bold text-green-600">{{ tasks() }}</div>
         </div>
       </div>
 
@@ -37,7 +37,7 @@
 
           <h3 class="card-title justify-center">Tiempo Transcurrido</h3>
 
-          <div class="text-4xl font-bold text-blue-600">Tiempo</div>
+          <div class="text-4xl font-bold text-blue-600">{{ seconds() }}</div>
         </div>
       </div>
 
@@ -50,23 +50,23 @@
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none"><path fill="#fff" d="M22.044 3.87v13.39H17.26a.957.957 0 0 0-.957.957V23H2.914a.956.956 0 0 1-.957-.957V3.87a.957.957 0 0 1 .956-.957h18.174a.956.956 0 0 1 .957.957"/><path fill="#e3e3e3" d="M22.043 17.26L16.304 23v-4.783a.957.957 0 0 1 .957-.956z"/><path stroke="#191919" stroke-linecap="round" stroke-linejoin="round" d="M4.826 1v4.304M9.609 1v4.304M14.391 1v4.304M19.174 1v4.304M9.609 7.696l-2.87 2.87L5.305 9.13m4.304 3.827l-2.87 2.87l-1.434-1.436m6.217-4.782h6.217m-6.217 4.782h6.217" stroke-width="1"/><path stroke="#191919" stroke-linecap="round" stroke-linejoin="round" d="M22.044 3.87v13.39H17.26a.957.957 0 0 0-.957.957V23H2.914a.956.956 0 0 1-.957-.957V3.87a.957.957 0 0 1 .956-.957h18.174a.956.956 0 0 1 .957.957" stroke-width="1"/><path stroke="#191919" stroke-linecap="round" stroke-linejoin="round" d="M22.043 17.26L16.304 23v-4.783a.957.957 0 0 1 .957-.956z" stroke-width="1"/></g></svg>
           Acciones
         </h3>
-      </div>
 
-      <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <button class="btn btn-primary btn-lg shadow-lg hover:scale-105 transition-transform duration-200">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none"><path fill="#fff" d="M22.044 3.87v13.39H17.26a.957.957 0 0 0-.957.957V23H2.914a.956.956 0 0 1-.957-.957V3.87a.957.957 0 0 1 .956-.957h18.174a.956.956 0 0 1 .957.957"/><path fill="#e3e3e3" d="M22.043 17.26L16.304 23v-4.783a.957.957 0 0 1 .957-.956z"/><path stroke="#191919" stroke-linecap="round" stroke-linejoin="round" d="M4.826 1v4.304M9.609 1v4.304M14.391 1v4.304M19.174 1v4.304M9.609 7.696l-2.87 2.87L5.305 9.13m4.304 3.827l-2.87 2.87l-1.434-1.436m6.217-4.782h6.217m-6.217 4.782h6.217" stroke-width="1"/><path stroke="#191919" stroke-linecap="round" stroke-linejoin="round" d="M22.044 3.87v13.39H17.26a.957.957 0 0 0-.957.957V23H2.914a.956.956 0 0 1-.957-.957V3.87a.957.957 0 0 1 .956-.957h18.174a.956.956 0 0 1 .957.957" stroke-width="1"/><path stroke="#191919" stroke-linecap="round" stroke-linejoin="round" d="M22.043 17.26L16.304 23v-4.783a.957.957 0 0 1 .957-.956z" stroke-width="1"/></g></svg>
-          Completar Tarea
-        </button>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <button class="btn btn-primary btn-lg shadow-lg hover:scale-105 transition-transform duration-200" (click)="completeTask()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none"><path fill="#fff" d="M22.044 3.87v13.39H17.26a.957.957 0 0 0-.957.957V23H2.914a.956.956 0 0 1-.957-.957V3.87a.957.957 0 0 1 .956-.957h18.174a.956.956 0 0 1 .957.957"/><path fill="#e3e3e3" d="M22.043 17.26L16.304 23v-4.783a.957.957 0 0 1 .957-.956z"/><path stroke="#191919" stroke-linecap="round" stroke-linejoin="round" d="M4.826 1v4.304M9.609 1v4.304M14.391 1v4.304M19.174 1v4.304M9.609 7.696l-2.87 2.87L5.305 9.13m4.304 3.827l-2.87 2.87l-1.434-1.436m6.217-4.782h6.217m-6.217 4.782h6.217" stroke-width="1"/><path stroke="#191919" stroke-linecap="round" stroke-linejoin="round" d="M22.044 3.87v13.39H17.26a.957.957 0 0 0-.957.957V23H2.914a.956.956 0 0 1-.957-.957V3.87a.957.957 0 0 1 .956-.957h18.174a.956.956 0 0 1 .957.957" stroke-width="1"/><path stroke="#191919" stroke-linecap="round" stroke-linejoin="round" d="M22.043 17.26L16.304 23v-4.783a.957.957 0 0 1 .957-.956z" stroke-width="1"/></g></svg>
+            Completar Tarea
+          </button>
 
-        <button class="btn btn-secondary btn-lg shadow-lg hover:scale-105 transition-transform duration-200">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none"><path fill="#fff" d="M22.044 3.87v13.39H17.26a.957.957 0 0 0-.957.957V23H2.914a.956.956 0 0 1-.957-.957V3.87a.957.957 0 0 1 .956-.957h18.174a.956.956 0 0 1 .957.957"/><path fill="#e3e3e3" d="M22.043 17.26L16.304 23v-4.783a.957.957 0 0 1 .957-.956z"/><path stroke="#191919" stroke-linecap="round" stroke-linejoin="round" d="M4.826 1v4.304M9.609 1v4.304M14.391 1v4.304M19.174 1v4.304M9.609 7.696l-2.87 2.87L5.305 9.13m4.304 3.827l-2.87 2.87l-1.434-1.436m6.217-4.782h6.217m-6.217 4.782h6.217" stroke-width="1"/><path stroke="#191919" stroke-linecap="round" stroke-linejoin="round" d="M22.044 3.87v13.39H17.26a.957.957 0 0 0-.957.957V23H2.914a.956.956 0 0 1-.957-.957V3.87a.957.957 0 0 1 .956-.957h18.174a.956.956 0 0 1 .957.957" stroke-width="1"/><path stroke="#191919" stroke-linecap="round" stroke-linejoin="round" d="M22.043 17.26L16.304 23v-4.783a.957.957 0 0 1 .957-.956z" stroke-width="1"/></g></svg>
-          Deshacer
-        </button>
+          <button class="btn btn-secondary btn-lg shadow-lg hover:scale-105 transition-transform duration-200" (click)="undoTask()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none"><path fill="#fff" d="M22.044 3.87v13.39H17.26a.957.957 0 0 0-.957.957V23H2.914a.956.956 0 0 1-.957-.957V3.87a.957.957 0 0 1 .956-.957h18.174a.956.956 0 0 1 .957.957"/><path fill="#e3e3e3" d="M22.043 17.26L16.304 23v-4.783a.957.957 0 0 1 .957-.956z"/><path stroke="#191919" stroke-linecap="round" stroke-linejoin="round" d="M4.826 1v4.304M9.609 1v4.304M14.391 1v4.304M19.174 1v4.304M9.609 7.696l-2.87 2.87L5.305 9.13m4.304 3.827l-2.87 2.87l-1.434-1.436m6.217-4.782h6.217m-6.217 4.782h6.217" stroke-width="1"/><path stroke="#191919" stroke-linecap="round" stroke-linejoin="round" d="M22.044 3.87v13.39H17.26a.957.957 0 0 0-.957.957V23H2.914a.956.956 0 0 1-.957-.957V3.87a.957.957 0 0 1 .956-.957h18.174a.956.956 0 0 1 .957.957" stroke-width="1"/><path stroke="#191919" stroke-linecap="round" stroke-linejoin="round" d="M22.043 17.26L16.304 23v-4.783a.957.957 0 0 1 .957-.956z" stroke-width="1"/></g></svg>
+            Deshacer
+          </button>
 
-        <button class="btn btn-error btn-lg shadow-lg hover:scale-105 transition-transform duration-200">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none"><path fill="#fff" d="M22.044 3.87v13.39H17.26a.957.957 0 0 0-.957.957V23H2.914a.956.956 0 0 1-.957-.957V3.87a.957.957 0 0 1 .956-.957h18.174a.956.956 0 0 1 .957.957"/><path fill="#e3e3e3" d="M22.043 17.26L16.304 23v-4.783a.957.957 0 0 1 .957-.956z"/><path stroke="#191919" stroke-linecap="round" stroke-linejoin="round" d="M4.826 1v4.304M9.609 1v4.304M14.391 1v4.304M19.174 1v4.304M9.609 7.696l-2.87 2.87L5.305 9.13m4.304 3.827l-2.87 2.87l-1.434-1.436m6.217-4.782h6.217m-6.217 4.782h6.217" stroke-width="1"/><path stroke="#191919" stroke-linecap="round" stroke-linejoin="round" d="M22.044 3.87v13.39H17.26a.957.957 0 0 0-.957.957V23H2.914a.956.956 0 0 1-.957-.957V3.87a.957.957 0 0 1 .956-.957h18.174a.956.956 0 0 1 .957.957" stroke-width="1"/><path stroke="#191919" stroke-linecap="round" stroke-linejoin="round" d="M22.043 17.26L16.304 23v-4.783a.957.957 0 0 1 .957-.956z" stroke-width="1"/></g></svg>
-          Reiniciar
-        </button>
+          <button class="btn btn-error btn-lg shadow-lg hover:scale-105 transition-transform duration-200" (click)="resetTask()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none"><path fill="#fff" d="M22.044 3.87v13.39H17.26a.957.957 0 0 0-.957.957V23H2.914a.956.956 0 0 1-.957-.957V3.87a.957.957 0 0 1 .956-.957h18.174a.956.956 0 0 1 .957.957"/><path fill="#e3e3e3" d="M22.043 17.26L16.304 23v-4.783a.957.957 0 0 1 .957-.956z"/><path stroke="#191919" stroke-linecap="round" stroke-linejoin="round" d="M4.826 1v4.304M9.609 1v4.304M14.391 1v4.304M19.174 1v4.304M9.609 7.696l-2.87 2.87L5.305 9.13m4.304 3.827l-2.87 2.87l-1.434-1.436m6.217-4.782h6.217m-6.217 4.782h6.217" stroke-width="1"/><path stroke="#191919" stroke-linecap="round" stroke-linejoin="round" d="M22.044 3.87v13.39H17.26a.957.957 0 0 0-.957.957V23H2.914a.956.956 0 0 1-.957-.957V3.87a.957.957 0 0 1 .956-.957h18.174a.956.956 0 0 1 .957.957" stroke-width="1"/><path stroke="#191919" stroke-linecap="round" stroke-linejoin="round" d="M22.043 17.26L16.304 23v-4.783a.957.957 0 0 1 .957-.956z" stroke-width="1"/></g></svg>
+            Reiniciar
+          </button>
+        </div>
       </div>
      </div>
 
