@@ -1,8 +1,7 @@
-<section>
-  <!-- <h1 class="text-2xl font-semibold underline text-blue-500">
-    Hello world!
-  </h1> -->
-
-  <!-- <counter></counter> -->
-  <router-outlet></router-outlet>
-</section>
+<main class="min-h-screen flex flex-col">
+  <app-navbar></app-navbar>
+  <div class="flex-1 p-4">
+    <router-outlet></router-outlet>
+  </div>
+  <app-footer></app-footer>
+</main>

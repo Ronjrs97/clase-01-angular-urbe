@@ -2,6 +2,9 @@
     "angular-schematics.schematicsDefaultOptions": {
         "angular-*": {
             "externalTemplate": true
+        },
+        "angular-component": {
+            "skipChangeDetectionOnPush": true
         }
     }
 }
