@@ -1,0 +1,26 @@
+<!-- Sidebar de navegación principal -->
+<!-- Ancho fijo de 320px, altura completa de pantalla -->
+<div class="w-80 h-screen bg-base-200 flex flex-col">
+  <!-- Sección de navegación -->
+  <div class="flex-1 p-6">
+    <!-- Título de la aplicación -->
+    <h2 class="text-xl font-bold mb-6">Cinema App URBE</h2>
+
+    <!-- Menú de navegación -->
+    <!-- Usa las clases de DaisyUI para el estilo del menú -->
+    <ul class="menu bg-base-200 rounded-box w-56">
+      <!-- Itera sobre los elementos del menú usando @for -->
+      @for (item of menuItems(); track item.label) {
+        <li>
+          <!-- Enlace de navegación con RouterLink -->
+          <!-- routerLinkActive aplica estilos cuando la ruta está activa -->
+          <a
+          [routerLink]="[item.route]"
+          routerLinkActive="menu-active link-secondary" class="link link-hover flex items-center gap-2 text-lg">
+          {{ item.label }}
+        </a>
+      </li>
+    }
+    </ul>
+  </div>
+</div>

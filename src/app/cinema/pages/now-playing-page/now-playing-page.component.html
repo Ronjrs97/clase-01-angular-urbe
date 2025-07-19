@@ -1,0 +1,45 @@
+<!-- Página principal de películas en cartelera -->
+<div class="flex">
+  <!-- Sidebar (ya incluido en el layout padre) -->
+
+  <!-- Contenido principal -->
+  <div class="flex-1">
+    <!-- Encabezado de la página -->
+    <div class="p-8">
+      <h1 class="text-4xl font-bold mb-2">En cines</h1>
+      <p class="  ">Descubre las últimas películas que estrenan en cines</p>
+    </div>
+
+    <!-- Contenedor principal del grid de películas -->
+    <div class="px-8 pb-8">
+      <!-- Estado de carga -->
+      @if (isLoading()) {
+        <div class="flex justify-center flex-col items-center h-full py-12">
+          <!-- Spinner de carga usando DaisyUI -->
+          <span class="loading loading-spinner loading-xl text-secondary"></span>
+          <p class="mt-4">Cargando películas...</p>
+        </div>
+      }
+
+      <!-- Grid de películas (solo se muestra si hay datos y no está cargando) -->
+      @if (!isLoading() && movies().length > 0) {
+        <!-- Grid responsive que se adapta a diferentes tamaños de pantalla -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-6">
+        <!-- Itera sobre las películas usando @for -->
+        @for (movie of movies(); track movie.id) {
+          <!-- Cada tarjeta es clickeable y navega a la página de detalle -->
+          <cinema-movie-card [movie]="movie" [routerLink]="['/cinema/movie', movie.id]"></cinema-movie-card>
+        }
+        </div>
+      }
+
+      <!-- Estado de error -->
+      @if (hasError()) {
+        <!-- Alert de error usando DaisyUI -->
+        <div role="alert" class="alert alert-error alert-soft text-center justify-center flex-1">
+          <span class="text-base">{{ hasError() }}</span>
+        </div>
+      }
+    </div>
+  </div>
+</div>

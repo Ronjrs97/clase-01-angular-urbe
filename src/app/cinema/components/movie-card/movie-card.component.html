@@ -1,0 +1,36 @@
+<!-- Tarjeta de película con efectos hover -->
+<!-- Usa Tailwind CSS para estilos y DaisyUI para componentes -->
+<div class="card bg-base-300  shadow-xl movie-card group overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-105">
+  <!-- Contenedor del poster de la película -->
+  <div class="relative">
+    <!-- Imagen del poster -->
+    <img
+      [src]="movie().posterImg"
+      [alt]="movie().name"
+      class="w-full h-96 object-cover"
+    >
+
+    <!-- Badge de calificación (posición absoluta en la esquina superior derecha) -->
+    <div class="absolute top-2 right-2">
+      <span class="badge badge-soft badge-primary">
+        {{ movie().rating | number:'1.1-1'}}/10
+      </span>
+    </div>
+  </div>
+
+  <!-- Información de la película -->
+  <div class="p-4">
+    <!-- Título de la película -->
+    <h3 class="font-semibold text-primary text-lg mb-2 truncate">{{ movie().name }}</h3>
+
+    <!-- Contenedor de géneros -->
+    <div class="flex flex-wrap gap-2">
+      <!-- Itera sobre los géneros de la película -->
+      <!-- @for (genre of getGenres(movie().genres); track genre.id) {
+        <span class="badge badge-soft badge-primary">{{ genre.name }}</span>
+      } -->
+    </div>
+
+  </div>
+</div>
+
