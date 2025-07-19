@@ -38,4 +38,11 @@ export default class TaskManagerPageComponent {
     this.tasks.set(0);
   }
 
+  getProgressPercent(): number {
+    const maxTasks = 10;
+
+      // return (this.tasks() / maxTasks) * 100
+    return Math.min((this.tasks() / maxTasks) * 100, 100);
+  }
+
  }
