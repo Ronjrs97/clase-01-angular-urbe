@@ -50,7 +50,21 @@
               placeholder="Correo electronico"
               formControlName="email"
               class="input input-bordered w-full"
+               [class.input-error]="hasError('email')"
+              [class.input-success]="isValid('email')"
             >
+            @if (hasError('email')) {
+              <label class="label">
+              <!-- @if (claseForm.get('name')!.errors!['required']) {
+                <span class="label-text-alt text-error">
+                  El campo es requerido
+                </span>
+              } -->
+                <span class="label-text-alt text-error">
+                  {{ getErrorMessage('email') }}
+                </span>
+              </label>
+            }
           </div>
 
           <!--* Textarea del mensaje -->
@@ -64,7 +78,22 @@
               rows="3"
               formControlName="mensaje"
               class="textarea textarea-bordered w-full"
+              class="textarea textarea-bordered w-full"
+               [class.textarea-error]="hasError('mensaje')"
+              [class.textarea-success]="isValid('mensaje')"
             ></textarea>
+            @if (hasError('mensaje')) {
+              <label class="label">
+              <!-- @if (claseForm.get('name')!.errors!['required']) {
+                <span class="label-text-alt text-error">
+                  El campo es requerido
+                </span>
+              } -->
+                <span class="label-text-alt text-error">
+                  {{ getErrorMessage('mensaje') }}
+                </span>
+              </label>
+            }
           </div>
 
           <!--* Boton del Form -->
@@ -72,17 +101,30 @@
            <button
             type="submit"
             class="btn btn-primary w-full"
+            [disabled]="!claseForm.valid || isSubmitting()"
             >
-            Enviar
+            @if (isSubmitting()) {
+              <span class="loading loading-spinner loading-sm"></span>
+              Enviando...
+            } @else {
+              Enviar
+            }
           </button>
           </div>
         </form>
 
-        <div class="flex flex-col">
+        @if (isSend()) {
+          <div class="alert alert-success">
+            <span>Formulario enviado!</span>
+          </div>
+        }
+
+
+        <!-- <div class="flex flex-col">
           <h6> {{ claseForm.value | json }} </h6>
           <h6> {{ claseForm.valid }} </h6>
           <h6> {{ claseForm.status }} </h6>
-        </div>
+        </div> -->
       </div>
     </div>
    </div>

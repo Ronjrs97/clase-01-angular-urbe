@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { JsonPipe } from '@angular/common';
 
@@ -11,6 +11,9 @@ import { JsonPipe } from '@angular/common';
 export default class FormspageComponent {
 
   private fb = new FormBuilder();
+
+  isSubmitting = signal(false);
+  isSend = signal(false);
 
   // name= new FormControl('');
   claseForm: FormGroup;
@@ -33,9 +36,16 @@ export default class FormspageComponent {
 
   onSubmit(){
     if (this.claseForm.valid) {
-      console.log(this.claseForm);
-      console.log('Formulario correcto');
+      this.isSubmitting.set(true);
 
+      setTimeout(() => {
+        this.isSubmitting.set(false)
+
+        this.isSend.set(true);
+        this.claseForm.reset();
+      }, 3000);
+      // console.log(this.claseForm);
+      // console.log('Formulario correcto');
     }
   }
 
