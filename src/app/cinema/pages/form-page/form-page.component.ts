@@ -38,4 +38,51 @@ export default class FormspageComponent {
 
     }
   }
+
+  hasError(field: string): boolean{
+
+    const control = this.claseForm.get(field);
+    if (control) {
+      return !control.valid && control.touched;
+    }
+    return false;
+    // if (control?.valid) {
+
+    // }
+    // return !!(control?.valid);
+  }
+
+  isValid(field: string){
+    const control = this.claseForm.get(field);
+    if (control) {
+      return control.valid && control.touched;
+    }
+    return false;
+  }
+
+  getErrorMessage(field: string): string {
+
+    const control = this.claseForm.get(field);
+
+    if(!control?.errors) return '';
+
+    const errors = control.errors;
+
+    switch (field) {
+      case 'name':
+        if(errors['required']) return 'El nombre es requerido';
+        if(errors['minlength']) return 'El nombre debe tener al menos 3 caracteres';
+        break;
+      case 'email':
+        if(errors['required']) return 'El coreeo es requerido';
+        if(errors['email']) return 'Debes ingresar un correo valido';
+        break;
+      case 'mensaje':
+        if(errors['required']) return 'El mensaje es requerido';
+        if(errors['minlength']) return 'El mensaje debe tener al menos 7 caracteres';
+        break;
+    }
+
+    return '';
+  }
 }

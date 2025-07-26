@@ -20,7 +20,23 @@
               placeholder="Nombre"
               formControlName="name"
               class="input input-bordered w-full"
+              [class.input-error]="hasError('name')"
+              [class.input-success]="isValid('name')"
             >
+
+            @if (hasError('name')) {
+              <label class="label">
+              <!-- @if (claseForm.get('name')!.errors!['required']) {
+                <span class="label-text-alt text-error">
+                  El campo es requerido
+                </span>
+              } -->
+                <span class="label-text-alt text-error">
+                  {{ getErrorMessage('name') }}
+                </span>
+              </label>
+            }
+
           </div>
 
           <!--* Input del email -->
@@ -66,7 +82,6 @@
           <h6> {{ claseForm.value | json }} </h6>
           <h6> {{ claseForm.valid }} </h6>
           <h6> {{ claseForm.status }} </h6>
-
         </div>
       </div>
     </div>
