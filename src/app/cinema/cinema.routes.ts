@@ -12,6 +12,10 @@ export const cinemaRoutes: Routes = [
         component: NowPlayingPageComponent
       },
       {
+        path: 'coming-soon',
+        loadComponent: () => import('./pages/coming-soon-page/coming-soon-page.component')
+      },
+      {
         path: 'form',
         loadComponent: () => import('./pages/form-page/form-page.component')
       },

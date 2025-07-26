@@ -1,0 +1,64 @@
+<!-- Página principal de películas en cartelera -->
+<div class="flex">
+  <!-- Sidebar (ya incluido en el layout padre) -->
+
+  <!-- Contenido principal -->
+  <div class="flex-1">
+    <!-- Encabezado de la página -->
+     <div class="flex justify-between items-center p-8">
+       <div class="">
+         <h1 class="text-4xl font-bold mb-2">Proximamente</h1>
+         <p class="  ">Descubre las proximas películas que se estrenaran en cines</p>
+       </div>
+       <div>
+        <label class="input">
+          <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <g
+              stroke-linejoin="round"
+              stroke-linecap="round"
+              stroke-width="2.5"
+              fill="none"
+              stroke="currentColor"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.3-4.3"></path>
+            </g>
+          </svg>
+          <input type="search" class="grow" placeholder="Buscar pelicula" [formControl]="searchControl" (keyup.enter)="filterMovies()" />
+        </label>
+       </div>
+     </div>
+
+    <!-- Contenedor principal del grid de películas -->
+    <div class="px-8 pb-8">
+      <!-- Estado de carga -->
+      @if (isLoading()) {
+        <div class="flex justify-center flex-col items-center h-full py-12">
+          <!-- Spinner de carga usando DaisyUI -->
+          <span class="loading loading-spinner loading-xl text-secondary"></span>
+          <p class="mt-4">Cargando películas...</p>
+        </div>
+      }
+
+      <!-- Grid de películas (solo se muestra si hay datos y no está cargando) -->
+      @if (!isLoading() && moviesFiltered().length > 0) {
+        <!-- Grid responsive que se adapta a diferentes tamaños de pantalla -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-6">
+        <!-- Itera sobre las películas usando @for -->
+        @for (movie of moviesFiltered(); track movie.id) {
+          <!-- Cada tarjeta es clickeable y navega a la página de detalle -->
+          <cinema-movie-card [movie]="movie" [routerLink]="['/cinema/movie', movie.id]"></cinema-movie-card>
+        }
+        </div>
+      }
+
+      <!-- Estado de error -->
+      @if (hasError()) {
+        <!-- Alert de error usando DaisyUI -->
+        <div role="alert" class="alert alert-error alert-soft text-center justify-center flex-1">
+          <span class="text-base">{{ hasError() }}</span>
+        </div>
+      }
+    </div>
+  </div>
+</div>

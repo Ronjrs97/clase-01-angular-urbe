@@ -4,7 +4,7 @@ import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-forms-page',
-  imports: [ReactiveFormsModule, JsonPipe],
+  imports: [ReactiveFormsModule],
   templateUrl: './form-page.component.html',
   styleUrl: './form-page.component.css',
 })

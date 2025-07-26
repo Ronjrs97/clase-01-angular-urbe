@@ -1,10 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { MenuItem } from '../../interfaces/menu-cinema.interface';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'cinema-sidebar',
-  imports: [RouterLink],
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css',
 })
