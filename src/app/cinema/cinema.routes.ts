@@ -12,6 +12,10 @@ export const cinemaRoutes: Routes = [
         component: NowPlayingPageComponent
       },
       {
+        path: 'form',
+        loadComponent: () => import('./pages/form-page/form-page.component')
+      },
+      {
         path: '**',
         redirectTo: 'now-playing'
       }

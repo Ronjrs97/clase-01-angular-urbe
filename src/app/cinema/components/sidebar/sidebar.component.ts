@@ -30,6 +30,12 @@ export class SidebarComponent {
       icon: 'heart',
       route: 'favorites'
     },
+    {
+      label: 'Formulario',
+      icon: 'heart',
+      route: 'form'
+    },
+
   ]);
 
  }

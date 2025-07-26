@@ -1,0 +1,55 @@
+<!-- <input type="text" placeholder="Nombre" [formControl]="name" (input)="onChangeName()" >
+
+<h6> {{ name.value }}</h6> -->
+
+<div class="container mx-auto p-6">
+  <div class="max-w-md mx-auto">
+    <div class="card bg-base-100 shadow-xl">
+      <div class="card-body">
+        <h2 class="card-title text-2xl">Formulario Reactivo</h2>
+
+        <form class="space-y-4" [formGroup]="claseForm" (ngSubmit)="onSubmit()">
+          <!--* Input del nombre -->
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text font-medium">Nombre</span>
+            </label>
+
+            <input
+              type="text"
+              placeholder="Nombre"
+              formControlName="name"
+              class="input input-bordered w-full"
+            >
+          </div>
+
+          <!--* Input del email -->
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text font-medium">Email</span>
+            </label>
+
+            <input
+              type="email"
+              placeholder="Correo electronico"
+              class="input input-bordered w-full"
+            >
+          </div>
+
+          <!--* Textarea del mensaje -->
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text font-medium">Mensaje</span>
+            </label>
+
+            <textarea
+              placeholder="Mensaje.."
+              rows="3"
+              class="textarea textarea-bordered w-full"
+            ></textarea>
+          </div>
+        </form>
+      </div>
+    </div>
+   </div>
+</div>
