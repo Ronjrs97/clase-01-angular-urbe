@@ -62,7 +62,12 @@
           </div>
         </form>
 
-        <h6> {{ claseForm.value | json }} </h6>
+        <div class="flex flex-col">
+          <h6> {{ claseForm.value | json }} </h6>
+          <h6> {{ claseForm.valid }} </h6>
+          <h6> {{ claseForm.status }} </h6>
+
+        </div>
       </div>
     </div>
    </div>

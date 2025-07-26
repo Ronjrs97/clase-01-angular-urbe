@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { JsonPipe } from '@angular/common';
 
 @Component({
@@ -17,9 +17,9 @@ export default class FormspageComponent {
 
   constructor(){
     this.claseForm = this.fb.group({
-      name: [''],
-      email: [''],
-      mensaje: ['']
+      name: ['', [Validators.required, Validators.minLength(3)]],
+      email: ['', [Validators.required, Validators.email]],
+      mensaje: ['', [Validators.required, Validators.minLength(7)]]
     })
   }
 
@@ -32,6 +32,10 @@ export default class FormspageComponent {
   }
 
   onSubmit(){
-    console.log(this.claseForm);
+    if (this.claseForm.valid) {
+      console.log(this.claseForm);
+      console.log('Formulario correcto');
+
+    }
   }
 }
